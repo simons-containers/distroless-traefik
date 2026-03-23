@@ -24,7 +24,8 @@ Build container using build-args from versions.yaml:
 ```bash
 docker build -t \
   distroless-traefik:$(yq -r .traefik versions.yaml) \
-  $(yq -r 'to_entries | .[] | "--build-arg \(.key | ascii_upcase)_VERSION=\(.value)"' versions.yaml) -f Containerfile .
+  $(yq -r 'to_entries[] | "--build-arg " + (.key | upcase) + "_VERSION=" + .value' versions.yaml) \
+  -f Containerfile .
 ```
 
 ## License
