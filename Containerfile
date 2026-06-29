@@ -1,12 +1,11 @@
 FROM archlinux:base-devel-20260308.0.497099 AS builder
 
 ARG TRAEFIK_VERSION
-ARG TRAEFIK_TARBALL=traefik_v${TRAEFIK_VERSION}_linux_amd64.tar.gz
-ARG GITHUB_URL=https://github.com/traefik/traefik/releases/download
+ARG TRAEFIK_RELEASE
 
 WORKDIR /extract/traefik
 RUN curl --silent --show-error --location --output traefik.tar.gz \
-  "${GITHUB_URL}/v${TRAEFIK_VERSION}/${TRAEFIK_TARBALL}" \
+  "${TRAEFIK_RELEASE}" \
   && tar xzf traefik.tar.gz
 
 FROM ghcr.io/simons-containers/distroless-glibc:2.43

@@ -1,0 +1,9 @@
+{
+  "traefik": {
+    "version": "3.7.5",
+    "purl": "pkg:generic/traefik",
+    "release": {
+      "url_pattern": "https://github.com/traefik/traefik/releases/download/v{version}/traefik_v{version}_linux_amd64.tar.gz"
+    }
+  }
+}
