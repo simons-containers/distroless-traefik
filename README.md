@@ -1,6 +1,14 @@
-![Latest](https://ghcr-badge.egpl.dev/simons-containers/distroless-traefik/latest_tag?ignore=latest,sha256*&label=latest)  
-![Size](https://ghcr-badge.egpl.dev/simons-containers/distroless-traefik/size?tag=latest)  
-![Tags](https://ghcr-badge.egpl.dev/simons-containers/distroless-traefik/tags?ignore=latest,sha256*)  
+[![Current Version](https://raw.githubusercontent.com/simons-containers/distroless-traefik/badges/.badges/main/release.svg)](https://github.com/simons-containers/distroless-traefik/pkgs/container/distroless-traefik)
+[![Tags](https://raw.githubusercontent.com/simons-containers/distroless-traefik/badges/.badges/main/tags.svg)](https://github.com/simons-containers/distroless-traefik/pkgs/container/distroless-traefik)  
+![Current Size](https://raw.githubusercontent.com/simons-containers/distroless-traefik/badges/.badges/main/size.svg)
+![Wasted Size](https://raw.githubusercontent.com/simons-containers/distroless-traefik/badges/.badges/main/wasted.svg)
+![Efficiency](https://raw.githubusercontent.com/simons-containers/distroless-traefik/badges/.badges/main/efficiency.svg)  
+![Critical](https://raw.githubusercontent.com/simons-containers/distroless-traefik/badges/.badges/main/critical.svg)
+![High](https://raw.githubusercontent.com/simons-containers/distroless-traefik/badges/.badges/main/high.svg)
+![Medium](https://raw.githubusercontent.com/simons-containers/distroless-traefik/badges/.badges/main/medium.svg)
+![Low](https://raw.githubusercontent.com/simons-containers/distroless-traefik/badges/.badges/main/low.svg)  
+[![status](https://github.com/simons-containers/distroless-traefik/actions/workflows/deploy.yaml/badge.svg)](https://github.com/simons-containers/distroless-traefik/actions/workflows/deploy.yaml)
+[![status](https://github.com/simons-containers/distroless-traefik/actions/workflows/update-versions.yaml/badge.svg)](https://github.com/simons-containers/distroless-traefik/actions/workflows/update-versions.yaml)
 
 # Distroless Traefik container
 
@@ -15,21 +23,6 @@ Example:
 ```bash
 docker run -it --rm -v ./config:/etc/traefik \
   ghcr.io/simons-containers/distroless-traefik:latest
-```
-
-## Building
-
-| Arg | Description |
-|---|---|
-| `TRAEFIK_VERSION` | Version of Traefik to use
-
-Build container using build-args from versions.yaml:
-
-```bash
-docker build -t \
-  distroless-traefik:$(yq -r .traefik versions.yaml) \
-  $(yq -r 'to_entries[] | "--build-arg " + (.key | upcase) + "_VERSION=" + .value' versions.yaml) \
-  -f Containerfile .
 ```
 
 ## License
