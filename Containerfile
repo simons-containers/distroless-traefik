@@ -8,7 +8,7 @@ RUN curl --silent --show-error --location --output traefik.tar.gz \
   "${TRAEFIK_RELEASE}" \
   && tar xzf traefik.tar.gz
 
-FROM ghcr.io/simons-containers/distroless-glibc:2.43
+FROM ghcr.io/simons-containers/distroless-glibc:2.44
 ARG TRAEFIK_VERSION
 
 COPY --from=builder /extract/traefik/traefik /usr/bin/traefik
